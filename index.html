@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Page</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#001428,#003b8e,#0057ff,#001428);
+background-size:400% 400%;
+animation:sky 14s ease infinite;
+}
+
+@keyframes sky{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* CLOUDS */
+.cloud{
+position:absolute;
+font-size:80px;
+opacity:.15;
+animation:cloudMove linear infinite;
+}
+
+@keyframes cloudMove{
+from{transform:translateX(-200px)}
+to{transform:translateX(110vw)}
+}
+
+/* RAIN */
+.rain{
+position:fixed;
+inset:0;
+pointer-events:none;
+}
+
+.drop{
+position:absolute;
+width:2px;
+height:18px;
+background:rgba(255,255,255,.5);
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+from{transform:translateY(-100px)}
+to{transform:translateY(110vh)}
+}
+
+/* LIGHTNING */
+.flash{
+position:fixed;
+inset:0;
+background:white;
+opacity:0;
+pointer-events:none;
+}
+
+/* PARTICLES */
+.particle{
+position:absolute;
+color:white;
+opacity:.4;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh)}
+to{transform:translateY(-100px)}
+}
+
+/* CARD */
+.card{
+width:90%;
+max-width:600px;
+padding:40px;
+text-align:center;
+color:white;
+border-radius:25px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.25);
+box-shadow:0 0 25px rgba(0,100,255,.5);
+animation:floatCard 3s ease-in-out infinite;
+position:relative;
+}
+
+@keyframes floatCard{
+0%{transform:translateY(0px)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0px)}
+}
+
+h1{
+margin-bottom:20px;
+}
+
+button{
+padding:14px 30px;
+font-size:18px;
+border:none;
+border-radius:12px;
+margin:10px;
+cursor:pointer;
+transition:.2s;
+}
+
+.yes{
+background:#001f5c;
+color:white;
+}
+
+.yes:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px #0066ff;
+}
+
+.no{
+background:#ff2d2d;
+color:white;
+position:fixed;
+}
+
+/* FINAL */
+.final h1{
+font-size:3rem;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+.heart{
+position:fixed;
+font-size:24px;
+animation:rise 5s linear infinite;
+}
+
+@keyframes rise{
+from{transform:translateY(100vh)}
+to{transform:translateY(-100px)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="flash" id="flash"></div>
+
+<div class="cloud" style="top:10%;animation-duration:30s">☁️</div>
+<div class="cloud" style="top:25%;animation-duration:25s">☁️</div>
+<div class="cloud" style="top:60%;animation-duration:35s">☁️</div>
+
+<div class="rain" id="rain"></div>
+<div id="particles"></div>
+
+<div class="card" id="card">
+
+<h1 id="question">Do you think I'm a good brother? 💙</h1>
+
+<div id="buttons">
+<button class="yes" onclick="next()">Yes 💙</button>
+<button class="yes" onclick="next()">Of course 😎</button>
+</div>
+
+<p id="note"></p>
+
+</div>
+
+<script>
+
+const questions=[
+"Do you think I'm a good brother? 💙",
+"Do you think I will be successful in the future? 🎮✨",
+"Are you helping me get a PC? 💻😏"
+];
+
+let i=0;
+
+function next(){
+i++;
+if(i<questions.length){
+document.getElementById("question").innerText=questions[i];
+
+if(i===2){
+document.getElementById("buttons").innerHTML=`
+<button class="yes" onclick="finish()">YES ❤️</button>
+<button class="no" id="noBtn">NO 😏</button>
+`;
+document.getElementById("note").innerText="Try catching NO if you can 😆";
+
+const btn=document.getElementById("noBtn");
+
+document.addEventListener("mousemove",(e)=>{
+if(!btn) return;
+
+const r=btn.getBoundingClientRect();
+
+let dx=e.clientX-(r.left+r.width/2);
+let dy=e.clientY-(r.top+r.height/2);
+
+let dist=Math.sqrt(dx*dx+dy*dy);
+
+if(dist<140){
+let x=Math.random()*(window.innerWidth-r.width-20);
+let y=Math.random()*(window.innerHeight-r.height-20);
+
+btn.style.left=x+"px";
+btn.style.top=y+"px";
+}
+});
+}
+}
+}
+
+function finish(){
+
+document.getElementById("card").innerHTML=`
+<div class="final">
+<h1>🎉 Thank You! 💙</h1>
+<p style="font-size:22px;margin-top:20px">
+I appreciate your support.
+</p>
+<p style="margin-top:20px;font-size:26px">
+— Umer 💙
+</p>
+</div>
+`;
+
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💙";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(h);
+}
+}
+
+/* RAIN */
+const rain=document.getElementById("rain");
+
+for(let i=0;i<180;i++){
+let d=document.createElement("div");
+d.className="drop";
+d.style.left=Math.random()*100+"%";
+d.style.animationDuration=(0.5+Math.random())+"s";
+rain.appendChild(d);
+}
+
+/* PARTICLES */
+const p=document.getElementById("particles");
+
+for(let i=0;i<35;i++){
+let x=document.createElement("div");
+x.className="particle";
+x.innerHTML="✦";
+x.style.left=Math.random()*100+"vw";
+x.style.animationDuration=(5+Math.random()*5)+"s";
+p.appendChild(x);
+}
+
+/* LIGHTNING */
+setInterval(()=>{
+const f=document.getElementById("flash");
+f.style.opacity="0.4";
+setTimeout(()=>f.style.opacity=0,120);
+},8000+Math.random()*5000);
+
+</script>
+
+</body>
+</html>
