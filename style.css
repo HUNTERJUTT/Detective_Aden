@@ -1,0 +1,435 @@
+:root {
+    --theme-primary: #38bdf8;
+    --theme-bg-glow: #0b1326;
+    --theme-border: #475569;
+    --theme-accent: rgba(56, 189, 248, 0.15);
+}
+
+/* Strict Selection Lock System to prevent cheating or dragging text highlights */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+}
+
+body {
+    background: #04070d;
+    color: #e2e8f0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+    touch-action: manipulation;
+}
+
+/* High-Definition Combined Weather Matrix Canvas */
+#weatherCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -3;
+    pointer-events: none;
+    background: linear-gradient(to bottom, #03050a, var(--theme-bg-glow));
+}
+
+/* Depth Enhanced Layered Drifting Cloud Blanket Overlay */
+.cloud-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 65%;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.04) 0%, transparent 25%),
+        radial-gradient(circle at 55% 45%, rgba(255, 255, 255, 0.03) 0%, transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
+    z-index: -2;
+    pointer-events: none;
+    filter: blur(25px);
+    animation: driftClouds 70s linear infinite;
+}
+
+@keyframes driftClouds {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+header {
+    text-align: center;
+    padding: 20px 10px;
+    background: rgba(11, 19, 38, 0.85);
+    border-bottom: 2px solid #1e293b;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 2.1rem;
+    color: var(--theme-primary);
+    text-shadow: 0 0 15px var(--theme-accent);
+    margin-bottom: 12px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.box {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 1px solid #1e293b;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.game-container {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 0 16px;
+    position: relative;
+    z-index: 2;
+}
+
+#caseTitle {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #f1f5f9;
+    margin-bottom: 12px;
+}
+
+#caseInfo {
+    margin-bottom: 25px;
+    padding: 22px;
+    background: rgba(9, 15, 29, 0.95);
+    border-left: 5px solid var(--theme-primary);
+    border-radius: 4px 14px 14px 4px;
+    line-height: 1.6;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+    font-size: 1.1rem;
+}
+
+h2 {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.instruction-text {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+#board {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+/* Intelligent Suspect Deck Card Elements */
+.suspect {
+    background: rgba(22, 32, 51, 0.75);
+    border: 1px solid var(--theme-border);
+    padding: 18px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.suspect-meta-info {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.suspect-status-tag {
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(71, 85, 105, 0.4);
+    color: #cbd5e1;
+    border: 1px solid #475569;
+}
+
+.suspect.read {
+    border-color: var(--theme-primary);
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.suspect.read .suspect-status-tag {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--theme-primary);
+    border-color: var(--theme-primary);
+}
+
+/* PC-Specific Side Inline Interaction Buttons Layout Matrix */
+.pc-action-tray {
+    display: flex;
+    gap: 10px;
+}
+
+.pc-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.pc-btn.read-btn {
+    background: #1e293b;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+.pc-btn.read-btn:hover {
+    background: #334155;
+}
+
+.pc-btn.arrest-btn {
+    background: var(--theme-primary);
+    color: #04070d;
+    opacity: 0.4;
+    pointer-events: none; /* Locked out by default logic loops */
+}
+
+.suspect.read .pc-btn.arrest-btn {
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 0 10px var(--theme-accent);
+}
+
+.suspect.read .pc-btn.arrest-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+}
+
+/* Mobile-Specific Action Overlay Menu Layout Drawers */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 4, 8, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.menu-box {
+    background: #0b111e;
+    border-top: 3px solid var(--theme-primary);
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px 20px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
+    animation: slideUpMenu 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpMenu {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.menu-box h3 {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.menu-btn {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn.inspect {
+    background: #1e293b;
+    color: #f1f5f9;
+    border: 1px solid #475569;
+}
+
+.menu-btn.arrest {
+    background: var(--theme-primary);
+    color: #04070d;
+}
+
+.menu-btn.arrest.locked {
+    background: #1e293b;
+    color: #64748b;
+    border: 1px solid #334155;
+    opacity: 0.5;
+}
+
+.menu-btn.cancel {
+    background: transparent;
+    color: #ef4444;
+    margin-bottom: 0;
+}
+
+/* Modals & Popups System Configurations */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 4, 8, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.popupBox {
+    background: #0b111e;
+    border: 2px solid var(--theme-border);
+    padding: 25px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    animation: popUpEffect 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popUpEffect {
+    from { transform: scale(0.9) translateY(30px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.emoji-pop {
+    font-size: 55px;
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+    animation: bouncePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bouncePop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.4); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.popupBox h2 {
+    color: var(--theme-primary);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #1e293b;
+    margin-bottom: 20px;
+}
+
+#popupData {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    width: 100%;
+    background: #162238;
+    color: #f1f5f9;
+    border: 1px solid var(--theme-border);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Global Alert Floating Banner Layout */
+#result {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 36px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    z-index: 2000;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    display: none;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Level 50 Terminal Card Completion Interface Screen */
+.victory-card {
+    background: rgba(11, 17, 30, 0.95);
+    border: 3px solid #fbbf24;
+    border-radius: 24px;
+    padding: 45px 25px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(251, 191, 36, 0.25);
+    animation: finalGlowEffect 2.5s infinite alternate;
+}
+
+@keyframes finalGlowEffect {
+    from { transform: scale(1); }
+    to { transform: scale(1.01); box-shadow: 0 0 60px rgba(251, 191, 36, 0.4); }
+}
+
+.victory-card h1 {
+    color: #fbbf24;
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+}
+
+.victory-card p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #f1f5f9;
+}
+
+.victory-card em {
+    color: #6ee7b7;
+    display: block;
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
