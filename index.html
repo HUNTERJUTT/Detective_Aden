@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Detective Aden</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Advanced Weather Particles & Rain Canvas Layer -->
+    <canvas id="weatherCanvas"></canvas>
+
+    <!-- Animated Atmospheric Cloud Overlay -->
+    <div class="cloud-layer"></div>
+
+    <header>
+        <h1>🕵️ Detective Aden</h1>
+        <div class="stats">
+            <div class="box" id="box1">Case 1</div>
+            <div class="box" id="box2">Accuracy 100%</div>
+            <div class="box" id="box3">Time 0s</div>
+        </div>
+    </header>
+
+    <main class="game-container">
+        <div id="caseTitle">Active Inquiry File #1 / 50</div>
+        <div id="caseInfo">Analyzing crime scene files...</div>
+
+        <h2>Suspect Interrogations</h2>
+        <p class="instruction-text" id="deviceInstruction">Click a suspect to analyze their file or issue an arrest warrant.</p>
+        <div id="board"></div>
+    </main>
+
+    <!-- Mobile Quick Choice Action Sheet Menu Drawer -->
+    <div id="mobileMenu" class="mobile-menu hidden">
+        <div class="menu-box">
+            <h3 id="menuSuspectName">Suspect Profile</h3>
+            <button class="menu-btn inspect" id="menuInspectBtn">🔎 Inspect File</button>
+            <button class="menu-btn arrest" id="menuArrestBtn">🚨 Arrest Suspect</button>
+            <button class="menu-btn cancel" onclick="closeMobileMenu()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Detailed Suspect Folder Popup Modal -->
+    <div id="popup" class="popup hidden">
+        <div class="popupBox">
+            <h2>Suspect Interview Record</h2>
+            <hr class="divider">
+            <div id="popupData"></div>
+            <button class="close-btn" onclick="closePopup()">Close File</button>
+        </div>
+    </div>
+
+    <!-- Floating Alert System Status Banner -->
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
