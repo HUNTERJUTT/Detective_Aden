@@ -28,561 +28,559 @@ wrongSound.volume = 0.5;
 levelSound.volume = 0.6;
 clickSound.volume = 0.3;
 
-/* ---------------- THE MASTER 50-LEVEL DATABASE ---------------- */
-// 50 unique levels with 5 custom statements each (Totaling 250 unique alibis)
+/* ---------------- THE MASTER NATURAL 50-LEVEL DATABASE ---------------- */
 const masterLevels = {
     1: {
-        crime: "Golden Crown Theft", place: "Royal Museum",
-        clue: "Forensics found bright green grass stains on the white floor rug.",
+        crime: "Ruined Birthday Surprise", place: "The School Cafeteria",
+        clue: "Someone smashed the cake, leaving sticky streaks of yellow honey on the floor panels.",
         suspects: [
-            { type: "Criminal", name: "Ali", text: "I was playing football outside on the lawn all evening." },
-            { type: "RedHerring", name: "Ahmed", text: "I was painting a picture of a green forest in the art studio." },
-            { type: "Innocent", name: "Sara", text: "I was reading a history book in the quiet library corner." },
-            { type: "Innocent", name: "Fatima", text: "I was eating a sweet mango at the kitchen table." },
-            { type: "Innocent", name: "Zara", text: "I was typing a long email on the desktop computer." }
+            { name: "Zain", type: "Criminal", text: "Look at my throat, it's completely red! I had to mix a giant spoonful of honey into my warm tea to stop coughing during the party setup." },
+            { name: "Sara", type: "RedHerring", text: "Don't look at me, I hate sweet things. I spent my afternoon cutting up sour green apples for the fruit bowls." },
+            { name: "Ahmed", type: "Innocent", text: "Honestly, I was just sweeping up the paper confetti that fell from the ceiling decorations." },
+            { name: "Fatima", type: "Innocent", text: "I didn't even go near the kitchen! I was trying to fix a loose wire on the music sound system." },
+            { name: "Ali", type: "Innocent", text: "My job was just counting the plastic forks to make sure we had enough for all the guests." }
         ]
     },
     2: {
-        crime: "Diamond Ring Robbery", place: "Jewelry Boutique",
-        clue: "There is a strong smell of sweet wood smoke near the empty glass case.",
+        crime: "The Missing School Mascot", place: "The Science Lab Courtyard",
+        clue: "The bunny cage was unlocked, and someone left bright green grass stains on the clean white floor tiles.",
         suspects: [
-            { type: "Criminal", name: "Hassan", text: "I was sitting by the outdoor campfire baking jacket potatoes." },
-            { type: "RedHerring", name: "Ayesha", text: "I was blowing out some tiny scented birthday candles." },
-            { type: "Innocent", name: "Omar", text: "I was washing my dirty hands inside the restroom sink." },
-            { type: "Innocent", name: "Hiba", text: "I was searching for a lost blue pen under the couch cushions." },
-            { type: "Innocent", name: "Areeba", text: "I was organizing the shiny new boxes on the stock shelves." }
+            { name: "Hassan", type: "Criminal", text: "We were playing football out on the main lawn all evening, and the ball flew over the fence into the bushes." },
+            { name: "Ayesha", type: "RedHerring", text: "I spent my time painting a giant green forest landscape on the classroom art chalkboard." },
+            { name: "Omar", type: "Innocent", text: "I was sitting quietly at the back desk reading a thick history book about ancient kings." },
+            { name: "Hiba", type: "Innocent", text: "My hands are clean! I was just typing out the lab safety notes on the computer terminal." },
+            { name: "Zara", type: "Innocent", text: "I spent the last hour washing my dirty coffee mug at the staff room sink." }
         ]
     },
     3: {
-        crime: "Secret Recipe Theft", place: "Bakery Kitchen",
-        clue: "The thief left behind sticky drops of yellow honey on the counter.",
+        crime: "Movie Set Prop Disaster", place: "The Hollywood Studio Lot",
+        clue: "The priceless medieval sword prop was scratched, and there was a heavy smell of wood smoke near the rack.",
         suspects: [
-            { type: "Criminal", name: "Usman", text: "I was mixing hot tea with honey to soothe my sore throat." },
-            { type: "RedHerring", name: "Zain", text: "I was cutting up ripe yellow bananas for a fruit salad dessert." },
-            { type: "Innocent", name: "Ayesha", text: "I was sweeping the dry flour dust off the tiled floor." },
-            { type: "Innocent", name: "John", text: "I was wiping the windows clean with a damp blue cloth." },
-            { type: "Innocent", name: "David", text: "I was counting the empty milk bottles behind the back door." }
+            { name: "Kamran", type: "Criminal", text: "The weather got freezing cold, so I gathered some scrap wood and lit a small campfire outside my trailer." },
+            { name: "Nida", type: "RedHerring", text: "I was blowing out dozens of tiny birthday candles on the director's surprise party cupcakes." },
+            { name: "Bilal", type: "Innocent", text: "I was moving heavy equipment boxes out of the wardrobe truck all afternoon." },
+            { name: "Sana", type: "Innocent", text: "My job was just ironing the historical silk costumes so they wouldn't look wrinkly on camera." },
+            { name: "Hamza", type: "Innocent", text: "I stayed inside the makeup room cleaning the foundation brushes with rubbing alcohol." }
         ]
     },
     4: {
-        crime: "Rare Comic Book Loss", place: "Bookstore Vault",
-        clue: "A tiny patch of soft, white cat fur was found stuck to the bookshelf.",
+        crime: "Gaming Server Shutdown", place: "The Mainframe Server Room",
+        clue: "Someone pulled the main network power plug while chewing on an extra-strong mint candy.",
         suspects: [
-            { type: "Criminal", name: "James", text: "I was brushing and feeding my fluffy white kitten in the lobby." },
-            { type: "RedHerring", name: "William", text: "I was wearing a thick white woolen winter sweater all day." },
-            { type: "Innocent", name: "Noah", text: "I was stacking heavy dictionaries on the top display rack." },
-            { type: "Innocent", name: "Daniel", text: "I was fixing a loose wheel on the library book cart." },
-            { type: "Innocent", name: "Emily", text: "I was coloring a poster using my bright red sketch markers." }
+            { name: "Usman", type: "Criminal", text: "I was falling asleep at my desk, so I popped a super strong piece of peppermint gum to shock myself awake." },
+            { name: "Maria", type: "RedHerring", text: "I had a massive cup of hot herbal green tea sitting right next to my mouse pad." },
+            { name: "Raza", type: "Innocent", text: "I spent the entire shift unboxing brand new computer keyboards from their plastic packaging." },
+            { name: "Amna", type: "Innocent", text: "Don't blame me, I was over in Sector B dusting off the old monitor screens with a micro cloth." },
+            { name: "Fahad", type: "Innocent", text: "I was running a shredding machine to get rid of the printed paper logs from last year." }
         ]
     },
     5: {
-        crime: "Mainframe System Hack", place: "Tech Hub Server Room",
-        clue: "The room smells heavily of strong mint candy.",
+        crime: "The Missing Diamond Ring", place: "The Jewelry Vault",
+        clue: "The security lock was bypassed, and investigators found fine powdery white chalk traces left on the metal handle.",
         suspects: [
-            { type: "Criminal", name: "Lucas", text: "I was chewing an extra-strong mint gum to stay wide awake." },
-            { type: "RedHerring", name: "Michael", text: "I was drinking a hot cup of herbal green tea at my desk." },
-            { type: "Innocent", name: "Liam", text: "I was unboxing brand new computer mice from plastic wraps." },
-            { type: "Innocent", name: "Chris", text: "I was wiping the computer monitors with an anti-dust spray." },
-            { type: "Innocent", name: "Elena", text: "I was shredding old printout sheets in the corner machine." }
+            { name: "Bilal", type: "Criminal", text: "I was using white chalk blocks to write down the daily price updates on the storefront slate board." },
+            { name: "Asma", type: "RedHerring", text: "I was lifting heavy supply boxes in the stockroom and put some baby powder on my hands so they wouldn't slip." },
+            { name: "Junaid", type: "Innocent", text: "I was busy trimming the dead leaves off the indoor decorative plants near the front window." },
+            { name: "Sania", type: "Innocent", text: "My schedule was completely packed with organizing the shiny velvet display boxes on the shelves." },
+            { name: "Tariq", type: "Innocent", text: "I didn't touch anything. I was sweeping the loose dust off the gravel path outside." }
         ]
     },
     6: {
-        crime: "Golden Artifact Swap", place: "Ancient Exhibit Hall",
-        clue: "There are wet, muddy shoe outlines coming from the side window.",
+        crime: "Mystery Alarm Trigger", place: "The Art Museum Gallery",
+        clue: "The lasers went off, and wet, muddy shoe footprints were found leading straight from the side window frame.",
         suspects: [
-            { type: "Criminal", name: "Mason", text: "I just walked back inside after watering the muddy garden plots." },
-            { type: "RedHerring", name: "Sophia", text: "I accidentally spilled clean tap water from my glass bottle onto the tiles." },
-            { type: "Innocent", name: "Ethan", text: "I was hanging up new informational posters on the main wall boards." },
-            { type: "Innocent", name: "Olivia", text: "I was polishing the glass display frames with a smooth dry sponge." },
-            { type: "Innocent", name: "Jacob", text: "I was sorting ancient stone arrowheads inside plastic storage trays." }
+            { name: "Kashif", type: "Criminal", text: "The hose broke outside, and I spent a long time watering the dry mud beds around the courtyard flowers." },
+            { name: "Sadia", type: "RedHerring", text: "I accidentally knocked over a full water bottle right onto the slippery marble floor." },
+            { name: "Waqas", type: "Innocent", text: "I was standing up on a tall ladder hanging the new oil painting posters on the wall panels." },
+            { name: "Zoya", type: "Innocent", text: "My assignment was just wiping fingerprints off the glass exhibition frames with a dry sponge." },
+            { name: "Danish", type: "Innocent", text: "I spent my evening counting the ancient stone artifacts to see if the catalog matched." }
         ]
     },
     7: {
-        crime: "Laptop Prototype Break-in", place: "R&D Design Lab",
-        clue: "A broken piece of a bright pink plastic eraser was left on the table.",
+        crime: "The Stolen Comic Book", place: "The Bookstore Attic",
+        clue: "A rare first-edition comic went missing, leaving behind a few strands of fluffy white animal fur.",
         suspects: [
-            { type: "Criminal", name: "Ava", text: "I was drawing engineering pencil sketches and rubbing out mistakes." },
-            { type: "RedHerring", name: "Logan", text: "I was using a bright pink highlighter pen to mark text rules." },
-            { type: "Innocent", name: "Isabella", text: "I was plugging data transfer cables into the back of the servers." },
-            { type: "Innocent", name: "Lucas", text: "I was sweeping up bits of wire clippings from the lab floor floor." },
-            { type: "Innocent", name: "Mia", text: "I was testing the laptop keyboard keys one by one for lag." }
+            { name: "Farhan", type: "Criminal", text: "My white Persian cat was crying in the lobby, so I brought him upstairs to brush out his coat." },
+            { name: "Alia", type: "RedHerring", text: "It's freezing in here! I've been wearing this heavy, fuzzy white wool sweater all morning." },
+            { name: "Sami", type: "Innocent", text: "I was stacking the big dictionaries onto the heavy display racks at the front entrance." },
+            { name: "Kiran", type: "Innocent", text: "I spent hours fixing a squeaky wheel on the rolling metal library book cart." },
+            { name: "Asif", type: "Innocent", text: "I was busy coloring the store sale sign using my bright red sketch markers." }
         ]
     },
     8: {
-        crime: "Cash Box Raid", place: "Ticket Counter Office",
-        clue: "The floor near the safe has fine silvery glitter dust on it.",
+        crime: "The Office Prank Gone Wrong", place: "The Manager's Private Desk",
+        clue: "Someone glued the keyboard to the desk, leaving a broken piece of a bright pink eraser behind.",
         suspects: [
-            { type: "Criminal", name: "Jackson", text: "I was cutting up sparkling glitter sheets for a school craft poster." },
-            { type: "RedHerring", name: "Oliver", text: "I was polishing the shiny silver coins to put them in rolls." },
-            { type: "Innocent", name: "Charlotte", text: "I was checking the serial numbers on the paper money stacks." },
-            { type: "Innocent", name: "Aiden", text: "I was shredding old transaction receipts from last month." },
-            { type: "Innocent", name: "Amelia", text: "I was resetting the digital passcode on the front door panel." }
+            { name: "Imran", type: "Criminal", text: "I was drawing rough sketches for the new logo design and had to rub out a ton of pencil mistakes." },
+            { name: "Nadia", type: "RedHerring", text: "I didn't touch an eraser. I was marking the important report pages with a neon pink highlighter." },
+            { name: "Haris", type: "Innocent", text: "I was underneath the desk plugging the internet cables back into the main terminal docks." },
+            { name: "Iqra", type: "Innocent", text: "I spent my time sweeping up the metal staple clips from the office floor." },
+            { name: "Saad", type: "Innocent", text: "I was just testing the spacebars on the new laptops to make sure they didn't get stuck." }
         ]
     },
     9: {
-        crime: "Ancient Painting Cutout", place: "Art Gallery Wing",
-        clue: "A sharp smell of vinegar and oil salad dressing hangs in the air.",
+        crime: "The Gold Medal Heist", place: "The High School Trophy Case",
+        clue: "The lock was picked, and the area near the trophy base was covered in shining silver glitter flakes.",
         suspects: [
-            { type: "Criminal", name: "Ethan", text: "I was eating a fresh Greek cucumber salad for my late dinner." },
-            { type: "RedHerring", name: "Harper", text: "I was cleaning old paintbrushes with an industrial spirit chemical." },
-            { type: "Innocent", name: "Liam", text: "I was mounting heavy wooden canvas frames onto the plaster walls." },
-            { type: "Innocent", name: "Evelyn", text: "I was wiping down the overhead spotlight casings to clear cobwebs." },
-            { type: "Innocent", name: "Benjamin", text: "I was taking digital camera photos of the gallery entrance room." }
+            { name: "Yasir", type: "Criminal", text: "My daughter has a school science project due tomorrow, so I was helping her glue silver glitter stars on cardboard." },
+            { name: "Mehak", type: "RedHerring", text: "I wanted the display to look nice, so I spent an hour polishing the silver cups with a metal cleaning paste." },
+            { name: "Arsalan", type: "Innocent", text: "I was verifying the serial numbers printed on the bottom of the tournament plaques." },
+            { name: "Anum", type: "Innocent", text: "I didn't go near the glass! I was shredding old permission slips in the back office." },
+            { name: "Rizwan", type: "Innocent", text: "I was completely locked out in the corridor resetting the digital passcode on the front door." }
         ]
     },
     10: {
-        crime: "Golden Statue Disappearance", place: "Central Plaza Display",
-        clue: "There is a distinct aroma of roasted coffee beans around the base.",
+        crime: "The Secret Formula Leak", place: "The Chemical Research Lab",
+        clue: "A top-secret project file was photographed, leaving a sharp smell of vinegar and oil salad dressing in the cubicle.",
         suspects: [
-            { type: "Criminal", name: "Abigail", text: "I was grinding premium coffee beans to make a hot latte beverage." },
-            { type: "RedHerring", name: "Ali", text: "I was drinking a cold chocolate milkshake from a paper cup." },
-            { type: "Innocent", name: "Ahmed", text: "I was sweeping up dry leaves that blew inside from the main gates." },
-            { type: "Innocent", name: "Sara", text: "I was adjusting the position of the heavy velvet boundary ropes." },
-            { type: "Innocent", name: "Fatima", text: "I was changing the alkaline batteries inside the security flashlights." }
+            { name: "Shahid", type: "Criminal", text: "I skipped lunch, so I brought a giant homemade cucumber salad with Italian vinegar dressing to eat at my desk." },
+            { name: "Aima", type: "RedHerring", text: "I was cleaning the old oil paint stains off the lab table using an industrial chemical spirit cleaner." },
+            { name: "Nabeel", type: "Innocent", text: "I spent my time mounting the new wooden safety chart frames onto the dry walls." },
+            { name: "Saba", type: "Innocent", text: "I was focused on wiping down the overhead spotlight casings to remove spider webs." },
+            { name: "Waseem", type: "Innocent", text: "I was using the office digital camera to take pictures of the new lab equipment boxes." }
         ]
     },
-    // LEVELS 11-20
     11: {
-        crime: "Exotic Plant Theft", place: "Botanical Conservatory",
-        clue: "Forensics found white powdery chalk traces on the broken stem.",
+        crime: "The Golden Violin Swap", place: "The Music Conservatory Vault",
+        clue: "A fake instrument was put in place, leaving white dust from a violin rosin block all over the floor velvet.",
         suspects: [
-            { type: "Criminal", name: "Zara", text: "I was writing the plant names on the slate labels with classroom chalk." },
-            { type: "RedHerring", name: "Hassan", text: "I was mixing white fertilizer powder into the potting soil beds." },
-            { type: "Innocent", name: "Ayesha", text: "I was trimming dead brown leaves off the climbing ivy walls." },
-            { type: "Innocent", name: "Omar", text: "I was adjusting the automated mist nozzles to spray more water." },
-            { type: "Innocent", name: "Hiba", text: "I was sweeping the gravel pathway to keep the track looking neat." }
+            { name: "Tayyab", type: "Criminal", text: "I had a solo performance coming up, so I was heavily rubbing rosin chalk onto my wooden bow strings." },
+            { name: "Fiza", type: "RedHerring", text: "I accidentally dropped my gym bag, and a container of white talcum powder spilled on the bench." },
+            { name: "Adnan", type: "Innocent", text: "I was just checking the tuning pegs and string tension on the acoustic guitars in the corner." },
+            { name: "Rida", type: "Innocent", text: "My job was just alphabetizing the sheet music booklets inside the wooden storage cabinet." },
+            { name: "Salman", type: "Innocent", text: "I spent the evening wiping the dust off the grand piano keys with a specialized clean wipe." }
         ]
     },
     12: {
-        crime: "Crypto Wallet Ledger Theft", place: "Finance Manager Locker",
-        clue: "A strong smell of cinnamon candy can be detected in the small room.",
+        crime: "The Cryptographic Safe Breach", place: "The Finance Manager's Locker",
+        clue: "The digital ledger device was stolen, leaving behind a strong scent of roasted coffee beans near the keypad.",
         suspects: [
-            { type: "Criminal", name: "Areeba", text: "I was sucking on some spicy red cinnamon drops for my cough." },
-            { type: "RedHerring", name: "Usman", text: "I was baking sweet apple tarts with sugar powder in the break oven." },
-            { type: "Innocent", name: "Zain", text: "I was counting the plastic paperclips inside the desk drawer drawers." },
-            { type: "Innocent", name: "Ayesha", text: "I was oiling the squeaky hinges of the steel file cabinets." },
-            { type: "Innocent", name: "John", text: "I was organizing the business tax files by color coding the folders." }
+            { name: "Faizan", type: "Criminal", text: "I had to stay up for a double shift, so I was grinding fresh espresso beans to brew a dark coffee drink." },
+            { name: "Hira", type: "RedHerring", text: "I was sitting in the lounge drinking a sweet chocolate milkshake through a paper straw." },
+            { name: "Zubair", type: "Innocent", text: "I spent my evening sweeping up the dry leaves that blew into the lobby from the front gate." },
+            { name: "Nimra", type: "Innocent", text: "I was nowhere near the ledger! I was moving the heavy red velvet crowd ropes out in the hallway." },
+            { name: "Adeel", type: "Innocent", text: "My task was simple: replacing the dead batteries inside the night-shift security flashlights." }
         ]
     },
     13: {
-        crime: "Diamond Necklace Hijack", place: "VIP Dressing Wardrobe",
-        clue: "A broken piece of a bright blue ink pen clip was found near the vanity.",
+        crime: "The Missing Rare Plant", place: "The Botanical Greenhouse",
+        clue: "A unique tropical orchid was stolen, leaving behind sticky drops of red candle wax on the metal locking latch.",
         suspects: [
-            { type: "Criminal", name: "David", text: "I was filling out the clothing inventory form when my blue pen snapped." },
-            { type: "RedHerring", name: "James", text: "I was sewing a loose blue button back onto a model's dress shirt." },
-            { type: "Innocent", name: "William", text: "I was hanging up heavy designer winter coats inside the closet space." },
-            { type: "Innocent", name: "Noah", text: "I was steaming out the wrinkles from the silk evening gowns." },
-            { type: "Innocent", name: "Daniel", text: "I was cleaning fingerprints off the big dressing room mirrors." }
+            { name: "Arshad", type: "Criminal", text: "The power went out in my workshop, so I lit a red wax candle stamp to seal up some package envelopes." },
+            { name: "Shiza", type: "RedHerring", text: "I was painting the wooden flower pots with a coat of bright crimson red acrylic paint." },
+            { name: "Umair", type: "Innocent", text: "I was just applying a clear mechanical grease oil to the squeaky greenhouse door tracks." },
+            { name: "Kinza", type: "Innocent", text: "I spent the morning sorting the spare brass key rings into labeled plastic boxes." },
+            { name: "Ahsan", type: "Innocent", text: "I was sweeping up bits of old brown packing tape from the floor near the shipping desk." }
         ]
     },
     14: {
-        crime: "Historical Manuscript Theft", place: "Library Archives",
-        clue: "There are grey ash particles sitting right on top of the display table.",
+        crime: "The Diamond Necklace Swap", place: "The Theatre Dressing Room",
+        clue: "The prop necklace was replaced with glass, and a broken piece of a bright blue ink pen clip was found on the mirror table.",
         suspects: [
-            { type: "Criminal", name: "Emily", text: "I was burning the frayed string edges of the file folder folders to neat them up." },
-            { type: "RedHerring", name: "Lucas", text: "I was dusting old soot off the fireplace mantelpiece in the reading hall." },
-            { type: "Innocent", name: "Michael", text: "I was cataloging historical world maps from the nineteenth century." },
-            { type: "Innocent", name: "Liam", text: "I was pasting protective clear plastic covers onto old textbook prints." },
-            { type: "Innocent", name: "Chris", text: "I was sorting matching magazine volumes into chronological order piles." }
+            { name: "Wajid", type: "Criminal", text: "I was filling out the actor costume sign-out log sheet when my blue plastic pen snapped right in my hand." },
+            { name: "Sahar", type: "RedHerring", text: "I was busy sewing a shiny blue sapphire button back onto the main actor's stage jacket." },
+            { name: "Rehman", type: "Innocent", text: "I spent the whole night organizing the heavy woolen winter coats back onto the clothing racks." },
+            { name: "Laiba", type: "Innocent", text: "I was in the corner using the heavy clothing steamer to remove wrinkles from the silk dresses." },
+            { name: "Moiz", type: "Innocent", text: "My job was just cleaning the fingerprint smudges off the large wall mirrors with a glass spray." }
         ]
     },
     15: {
-        crime: "Encrypted Flash Drive Robbery", place: "Security Control Deck",
-        clue: "The room smells strongly of orange citrus skin peel.",
+        crime: "Historical Document Loss", place: "The Central Archives",
+        clue: "An old peace treaty script was taken, and grey ash particles were found sitting on the document wooden shelf.",
         suspects: [
-            { type: "Criminal", name: "Elena", text: "I was peeling and eating a couple of fresh oranges at my desk workstation." },
-            { type: "RedHerring", name: "Mason", text: "I sprayed a chemical lemon disinfectant over the network key panels." },
-            { type: "Innocent", name: "Sophia", text: "I was double-checking the live camera feeds on the display walls." },
-            { type: "Innocent", name: "Ethan", text: "I was entering employee badge numbers into the main system system." },
-            { type: "Innocent", name: "Olivia", text: "I was rebooting the primary backup power router systems in the closet." }
+            { name: "Zahid", type: "Criminal", text: "The threads on the old folder bounds were loose, so I used a lighter to burn the fuzzy string edges neat." },
+            { name: "Khadija", type: "RedHerring", text: "I was assigned to clean the charcoal soot out from the reading room fireplace mantelpiece." },
+            { name: "Atif", type: "Innocent", text: "I spent the afternoon cataloging old maps of the city that dates back to the 1800s." },
+            { name: "Iram", type: "Innocent", text: "I was applying protective clear plastic sheets over the fragile textbook covers." },
+            { name: "Babar", type: "Innocent", text: "I was simply gathering the old news magazines into matching chronological stacks." }
         ]
     },
     16: {
-        crime: "Ancient Coin Box Theft", place: "Vault Corridor B",
-        clue: "Forensics discovered tiny drops of red wax on the metal locking bar.",
+        crime: "The Stolen Flash Drive", place: "The Security Command Room",
+        clue: "An encrypted data drive was taken, and the room smells strongly of sweet orange citrus fruit skins.",
         suspects: [
-            { type: "Criminal", name: "Jacob", text: "I was sealing envelope packages using red wax stamps to make them official." },
-            { type: "RedHerring", name: "Ava", text: "I was painting a red wood box with glossy acrylic color brush paint." },
-            { type: "Innocent", name: "Logan", text: "I was lubricating the heavy wheel tracks using industrial clear grease." },
-            { type: "Innocent", name: "Isabella", text: "I was sorting key rings into separate cardboard storage containers." },
-            { type: "Innocent", name: "Lucas", text: "I was sweeping up scrap bits of tape from the packing station floors." }
+            { name: "Shoaib", type: "Criminal", text: "I brought a couple of fresh oranges from home and was peeling them at my console desk during the movie break." },
+            { name: "Maham", type: "RedHerring", text: "The system panels were dirty, so I sprayed an industrial lemon-scented chemical disinfectant over the buttons." },
+            { name: "Zeeshan", type: "Innocent", text: "I was glued to the monitor wall keeping an eye on the outdoor perimeter cameras." },
+            { name: "Erum", type: "Innocent", text: "My hand hurts from typing! I was entering employee security badge codes into the network database." },
+            { name: "Noman", type: "Innocent", text: "I was stuck inside the server closet rebooting the primary network router boxes." }
         ]
     },
     17: {
-        crime: "Rare Specimen Sneak-out", place: "Biology Lab Counter",
-        clue: "The floor beneath the counter is sticky with transparent liquid sugar syrup.",
+        crime: "Rare Specimen Leak", place: "The Biology Research Room",
+        clue: "A rare deep-sea fish model went missing, leaving the floor beneath the counter sticky with transparent liquid sugar syrup.",
         suspects: [
-            { type: "Criminal", name: "Mia", text: "I accidentally dropped my bottle of pancake syrup in the staff breakroom room." },
-            { type: "RedHerring", name: "Jackson", text: "I was pouring liquid chemical gel into test tubes for a science test." },
-            { type: "Innocent", name: "Oliver", text: "I was wiping down the microscope lenses with specialized tissue paper papers." },
-            { type: "Innocent", name: "Charlotte", text: "I was checking the thermometer readings inside the cooling fridge units." },
-            { type: "Innocent", name: "Aiden", text: "I was alphabetizing the biological sample jars on the glass shelf ranks." }
+            { name: "Gauhar", type: "Criminal", text: "I brought frozen waffles to eat in the break room and accidentally knocked over my bottle of maple syrup." },
+            { name: "Bushra", type: "RedHerring", text: "I spent my shift pouring a thick, clear chemical gel substance into the laboratory test tubes." },
+            { name: "Taimoor", type: "Innocent", text: "I was adjusting the focus dials on the microscope lenses using specialized tissue paper wipes." },
+            { name: "Yumna", type: "Innocent", text: "I was checking the digital temperature readouts inside the chemical storage refrigerator units." },
+            { name: "Faisal", type: "Innocent", text: "I spent the last two hours sorting the biological sample glass jars onto the shelf rows." }
         ]
     },
     18: {
-        crime: "Antique Clock Robbery", place: "Timepiece Exhibition",
-        clue: "A smell of burnt popcorn is trapped inside the display glass frame area.",
+        crime: "The Antique Clock Theft", place: "The Timepiece Exhibit Hall",
+        clue: "The main grandfather clock was damaged, leaving a strong smell of burnt popcorn trapped inside the display zone.",
         suspects: [
-            { type: "Criminal", name: "Amelia", text: "I overheated a popcorn bag in the break microwave and caused a lot of smoke." },
-            { type: "RedHerring", name: "Ethan", text: "I was roasting sweet almonds in a pan over a hot plate element." },
-            { type: "Innocent", name: "Harper", text: "I was winding up the spring mechanics of the grandfather clock displays." },
-            { type: "Innocent", name: "Liam", text: "I was polishing the wooden exterior panel casings with beeswax spray." },
-            { type: "Innocent", name: "Evelyn", text: "I was printing out label cards describing when the clocks were built." }
+            { name: "Aftab", type: "Criminal", text: "I forgot about my microwave snack in the break room, and the popcorn bag completely caught fire and filled the hall with smoke." },
+            { name: "Rania", type: "RedHerring", text: "I was roasting sweet almonds in a metal pan over a hot plate burner out in the lobby area." },
+            { name: "Sheraz", type: "Innocent", text: "I was winding up the old brass spring gears on the pendulum wall clocks." },
+            { name: "Aiza", type: "Innocent", text: "My job was just polishing the fine mahogany wood frames with a natural beeswax spray." },
+            { name: "Zafar", type: "Innocent", text: "I was running the label machine to print out the dates when each clock was made." }
         ]
     },
     19: {
-        crime: "Master Keycard Pickpocket", place: "Manager Front Office",
-        clue: "A tiny strand of bright purple thread was found on the leather chair arm.",
+        crime: "The Master Keycard Pickpocket", place: "The Manager's Front Office",
+        clue: "The passcard was snatched from a jacket, leaving a tiny strand of bright purple woolen yarn thread on the leather armchair.",
         suspects: [
-            { type: "Criminal", name: "Benjamin", text: "I was knitting a warm violet scarf for my grandmother during my break." },
-            { type: "RedHerring", name: "Abigail", text: "I was highlighting task notes using a dark purple neon markers stick." },
-            { type: "Innocent", name: "Ali", text: "I was filed down the sharp edge of a metal desk drawer sliders." },
-            { type: "Innocent", name: "Ahmed", text: "I was watering the green indoor leafy potted plants near the windows." },
-            { type: "Innocent", name: "Sara", text: "I was replacing the dry black ink ribbon inside the printing machine." }
+            { name: "Muneeb", type: "Criminal", text: "My hands need to stay busy, so I was sitting in the lounge knitting a warm purple wool scarf for my sister." },
+            { name: "Sobia", type: "RedHerring", text: "I didn't leave any threads! I was using a bright neon purple highlighter marker to check the invoice sheets." },
+            { name: "Jawad", type: "Innocent", text: "I was using a metal file tool to smoothen out the sharp edges of the office desk sliders." },
+            { name: "Maira", type: "Innocent", text: "I spent the morning watering the indoor green plants and clearing out the dry leaves from the dirt." },
+            { name: "Khurram", type: "Innocent", text: "I was busy replacing the old faded black ink ribbon inside the primary receipt printing machine." }
         ]
     },
     20: {
-        crime: "Golden Violin Loot", place: "Music Instrument Room",
-        clue: "White dust from a violin rosin block was dropped all over the room carpet.",
+        crime: "The Strategy Document Leak", place: "The Office Conference Block",
+        clue: "A top-secret business layout was stolen, leaving a strong smell of spicy cinnamon candy lingering around the executive table.",
         suspects: [
-            { type: "Criminal", name: "Fatima", text: "I was applying rosin chalk blocks to my musical bow strings to prep them." },
-            { type: "RedHerring", name: "Zara", text: "I accidentally spilled talcum powder from my sports bag onto the table bench." },
-            { type: "Innocent", name: "Hassan", text: "I was checking the wire string tension adjustments on the acoustic guitars." },
-            { type: "Innocent", name: "Ayesha", text: "I was arranging musical score sheet booklets inside the sorting cabinet cabinets." },
-            { type: "Innocent", name: "Omar", text: "I was wiping down the wooden piano keys using a safe alcohol fluid." }
+            { name: "Tanveer", type: "Criminal", text: "I had an awful throat tickle, so I was sucking on those strong, hot cinnamon spice drops all evening." },
+            { name: "Mehwish", type: "RedHerring", text: "I was heating up a plate of sweet apple cinnamon pastries in the break room oven cooker." },
+            { name: "Shehzad", type: "Innocent", text: "I didn't even sit at the table. I was counting the plastic paperclips inside the top desk drawer panels." },
+            { name: "Urooj", type: "Innocent", text: "I spent my time putting drops of oil on the squeaky hinges of the heavy metal file cabinets." },
+            { name: "Naveed", type: "Innocent", text: "My assignment was sorting the business tax folders into separate color-coded piles." }
         ]
     },
     // LEVELS 21-30
     21: {
-        crime: "Designer Watch Swindle", place: "Luxury Store Display",
-        clue: "There are drops of white correction fluid on the glass case top.",
+        crime: "Luxury Watch Swindle", place: "The Diamond Boutique Suite",
+        clue: "A real watch was swapped with a cheap copy, leaving dry drops of white correction fluid on the glass counter top.",
         suspects: [
-            { type: "Criminal", name: "Hiba", text: "I was painting over writing errors on my paper inventory forms using Whitener." },
-            { type: "RedHerring", name: "Areeba", text: "I was using white paste glue to label price tags onto cardboard boxes." },
-            { type: "Innocent", name: "Usman", text: "I was wiping down the glass shelves using a blue window spray bottle." },
-            { type: "Innocent", name: "Zain", text: "I was setting the precise local time zones on the digital watches." },
-            { type: "Innocent", name: "Ayesha", text: "I was placing leather watch bands into separate velvet storage containers." }
+            { name: "Irfan", type: "Criminal", text: "I made a huge writing mistake on the official paper delivery forms, so I used white corrector fluid to mask it." },
+            { name: "Aleeza", type: "RedHerring", text: "I was using white school paste glue to attach the paper price labels onto the bottom of the box containers." },
+            { name: "Daniyal", type: "Innocent", text: "I spent the entire afternoon spraying glass cleaner and wiping down the display showcases with paper towels." },
+            { name: "Sania", type: "Innocent", text: "My only task was setting the correct local digital times on the display chronograph pieces." },
+            { name: "Umair", type: "Innocent", text: "I was moving the empty leather watch bands back into the velvet storage cases in the vault." }
         ]
     },
     22: {
-        crime: "Secret Strategy Dossier Theft", place: "Conference Room Box",
-        clue: "A distinct smell of strong peppermint tea lingers around the room corner.",
+        crime: "The Private Memo Leak", place: "The Boardroom Suite",
+        clue: "A confidential text file was copied, leaving a distinct scent of hot peppermint tea around the corner desk.",
         suspects: [
-            { type: "Criminal", name: "John", text: "I was drinking a cup of hot mint tea to fix my stomach aches." },
-            { type: "RedHerring", name: "David", text: "I was spraying a mint scented aerosol to make the smelly room fresh." },
-            { type: "Innocent", name: "James", text: "I was shredding old printouts using the heavy paper destruction unit." },
-            { type: "Innocent", name: "William", text: "I was adjusting the HDMI monitor wires connected to the main screen projector." },
-            { type: "Innocent", name: "Noah", text: "I was aligning the executive rolling chairs around the oval desk structure." }
+            { name: "Rameez", type: "Criminal", text: "My stomach was feeling totally upset, so I brewed a hot cup of peppermint herbal tea to calm it down." },
+            { name: "Natasha", type: "RedHerring", text: "The room felt stuffy and old, so I used a can of mint-scented aerosol spray to make the air feel fresh." },
+            { name: "Saqib", type: "Innocent", text: "I spent hours pushing old document printouts into the heavy cross-cut paper shredding machine." },
+            { name: "Momina", type: "Innocent", text: "I was crawling under the desk checking the heavy HDMI wires connected to the large wall projector screen." },
+            { name: "Zeeshan", type: "Innocent", text: "My job was just aligning the rolling executive desk chairs perfectly around the big oval table structure." }
         ]
     },
     23: {
-        crime: "Golden Telescope Lens Theft", place: "Roof Observatory Deck",
-        clue: "There are smudges of dark grease marks left right on the metal frame knob.",
+        crime: "Telescope Lens Smuggling", place: "The Roof Observatory Deck",
+        clue: "The main gold-plated lens went missing, leaving heavy smudges of dark grease on the rotation metal knob.",
         suspects: [
-            { type: "Criminal", name: "Daniel", text: "I was oiling the gears of the rolling roof dome track with heavy black grease." },
-            { type: "RedHerring", name: "Emily", text: "I was coloring an astronomy star chart using dark graphite pencils." },
-            { type: "Innocent", name: "Lucas", text: "I was cleaning the giant glass mirror using special optical microfiber towels." },
-            { type: "Innocent", name: "Michael", text: "I was writing down telescope angle metrics into the logbook binder." },
-            { type: "Innocent", name: "Liam", text: "I was replacing the backup battery units inside the star tracker motor housing." }
+            { name: "Khizar", type: "Criminal", text: "The sliding roof track got stuck, so I had to climb up and apply thick black gear grease along the rollers." },
+            { name: "Sehrish", type: "RedHerring", text: "I was shading in an astronomy star chart map using my extra dark graphite sketching pencils." },
+            { name: "Waleed", type: "Innocent", text: "I was cleaning the main giant glass mirror using a specialized streak-free optical microfiber cloth towel." },
+            { name: "Hina", type: "Innocent", text: "I spent my hour entering the star angle numbers into the leather-bound observation logbook binder." },
+            { name: "Rameel", type: "Innocent", text: "I was checking the backup lithium battery cells inside the electronic tracking motor housing case." }
         ]
     },
     24: {
-        crime: "Rare Stamp Album Theft", place: "Collector Safe Deck",
-        clue: "A strong smell of banana fruit scent is left behind near the desk area.",
+        crime: "Rare Stamp Album Theft", place: "The Collector's Private Study",
+        clue: "The display safe was unlocked, and a strong smell of sweet banana fruit scent was left near the archive cabinet.",
         suspects: [
-            { type: "Criminal", name: "Chris", text: "I was snacking on sweet yellow bananas while working on my file sorting." },
-            { type: "RedHerring", name: "Elena", text: "I used a banana-scented furniture wax oil to give the desk wood a high polish." },
-            { type: "Innocent", name: "Mason", text: "I was using fine tweezers to sort the delicate vintage stamps by year." },
-            { type: "Innocent", name: "Sophia", text: "I was sliding protective plastic sleeves onto the stamp binder sheets." },
-            { type: "Innocent", name: "Ethan", text: "I was cataloging world postal stamp names into the desktop spreadsheet tool." }
+            { name: "Zafar", type: "Criminal", text: "I was starving during my filing shift, so I sat in the corner eating a couple of ripe yellow bananas." },
+            { name: "Ayla", type: "RedHerring", text: "I used a special banana-scented oil wax to give the ancient mahogany desk wood a nice glossy finish." },
+            { name: "Fiaz", type: "Innocent", text: "I was utilizing long steel tweezers to carefully place the old stamps into their display slots by year." },
+            { name: "Kanza", type: "Innocent", text: "My assignment was just sliding the clear protective plastic sheets into the stamp collection binder." },
+            { name: "Arif", type: "Innocent", text: "I spent my time typing the historical postal registration data into the shop's computer spreadsheet." }
         ]
     },
     25: {
-        crime: "Server Access Key Theft", place: "Network Node Room",
-        clue: "A tiny bit of shining gold foil wrapper was dropped right behind the server rack.",
+        crime: "Server Room Access Key Theft", place: "The Network Node Closet",
+        clue: "The backup passkey went missing, and a tiny piece of shining gold foil wrapper was dropped behind the server rack panels.",
         suspects: [
-            { type: "Criminal", name: "Olivia", text: "I was unwrapping chocolate gold coins and eating them for energy." },
-            { type: "RedHerring", name: "Jacob", text: "I was using gold metallic paint to stencil numbers onto the key cabinets." },
-            { type: "Innocent", name: "Ava", text: "I was tying loose networking data cables together using yellow zip ties." },
-            { type: "Innocent", name: "Logan", text: "I was running an automatic software update script on the master console terminal." },
-            { type: "Innocent", name: "Isabella", text: "I was blowing dust out of the server fans using a compressed air can." }
+            { name: "Shakir", type: "Criminal", text: "I bought a bag of chocolate gold coins from the candy store and was unwrapping and eating them for an energy boost." },
+            { name: "Noreen", type: "RedHerring", text: "I was using gold metallic paint and a stencil brush to paint serial numbers onto the iron key cabinets." },
+            { name: "Jamil", type: "Innocent", text: "I was using yellow plastic zip-ties to bind the loose network data connection wires together neatly." },
+            { name: "Shiza", type: "Innocent", text: "I didn't enter the rack zone. I was running a software update script from the master console screen terminal." },
+            { name: "Fahed", type: "Innocent", text: "I spent the last hour using a can of compressed air to blow out dust from the server cooling fan vents." }
         ]
     },
     26: {
-        crime: "Diamond Earring Shoplift", place: "Display Cabinet Suite",
-        clue: "The empty velvet display tray smells heavily of lavender flower extract perfume.",
+        crime: "Diamond Earring Shoplift", place: "The Showcase Exhibit Gallery",
+        clue: "A pair of diamond studs was taken, and the empty display cushion smells heavily of lavender flower extract perfume.",
         suspects: [
-            { type: "Criminal", name: "Lucas", text: "I was applying lavender scented hand lotion to treat my dry skin areas." },
-            { type: "RedHerring", name: "Mia", text: "I was unpacking fresh lavender flowers from a cardboard delivery box." },
-            { type: "Innocent", name: "Jackson", text: "I was adjusting the overhead halogen spotlights to shine on the display display." },
-            { type: "Innocent", name: "Oliver", text: "I was counting the luxury jewelry storage cases inside the vault." },
-            { type: "Innocent", name: "Charlotte", text: "I was scanning barcode sticker tags on incoming shipment box bundles." }
+            { name: "Mubashir", type: "Criminal", text: "My skin gets terribly cracked from the dry air, so I rubbed a thick layer of lavender-scented hand cream on my arms." },
+            { name: "Sadia", type: "RedHerring", text: "I was unboxing a fresh delivery batch of real dried lavender flowers to put in the lobby entrance vases." },
+            { name: "Zain", type: "Innocent", text: "I was on top of a stepstool adjusting the bright halogen spotlights so they would point directly at the gems." },
+            { name: "Aqsa", type: "Innocent", text: "My job was just opening the lower wooden drawers to count the empty jewelry boxes we had left." },
+            { name: "Haroon", type: "Innocent", text: "I spent my whole shift scanning the barcode stickers attached to the new incoming shipping crates." }
         ]
     },
     27: {
-        crime: "Encrypted Data Drive Theft", place: "Research Computer Pod",
-        clue: "There are traces of red clay dirt on the computer power cord wire.",
+        crime: "Encrypted Hard Drive Robbery", place: "The Research Lab Cubicle",
+        clue: "A prototype data drive was stolen, leaving behind traces of red clay dirt smudged on the thick computer power cord.",
         suspects: [
-            { type: "Criminal", name: "Aiden", text: "I was re-potting plants in the clay greenhouse before coming back to my desk." },
-            { type: "RedHerring", name: "Amelia", text: "I was sculpting a red pottery vase in the art craft zone across the hall." },
-            { type: "Innocent", name: "Ethan", text: "I was backing up computer directory files onto external hard storage storage." },
-            { type: "Innocent", name: "Harper", text: "I was cleaning off old sticky residue from the desktop workspace with a sponge." },
-            { type: "Innocent", name: "Liam", text: "I was setting up an ergonomic wrist support padding pad for the mouse keyboard." }
+            { name: "Rizwan", type: "Criminal", text: "I was re-potting the courtyard plants into fresh red clay terracotta pots before walking back to the computer." },
+            { name: "Amina", type: "RedHerring", text: "I was over in the design art room sculpting a clay model vase for the upcoming exhibition display." },
+            { name: "Zahid", type: "Innocent", text: "I spent the evening copying massive directory files from the server onto the external network drive boxes." },
+            { name: "Sana", type: "Innocent", text: "I was using a damp sponge to wipe off old sticky tape residue from the top of the office workspaces." },
+            { name: "Mustafa", type: "Innocent", text: "I was simply setting up the new foam padded wrist supports in front of the employee keyboards." }
         ]
     },
     28: {
-        crime: "Ancient Jade Carving Loss", place: "East Heritage Wing",
-        clue: "A strong aroma of strawberry fruit candy fill the empty artifact spot.",
+        crime: "Ancient Jade Carving Loss", place: "The East Heritage Corridor",
+        clue: "The artifact was lifted off its pillar, leaving a strong aroma of strawberry fruit candy right in the empty display slot.",
         suspects: [
-            { type: "Criminal", name: "Evelyn", text: "I was eating a pack of chewy strawberry candy treats during my routine checks." },
-            { type: "RedHerring", name: "Benjamin", text: "I sprayed a sweet strawberry room mist spray near the main entrance door." },
-            { type: "Innocent", name: "Abigail", text: "I was wiping dust off the base pedestals using an static wool duster." },
-            { type: "Innocent", name: "Ali", text: "I was checking if the glass door locking mechanisms were clicking shut securely." },
-            { type: "Innocent", name: "Ahmed", text: "I was translating ancient descriptive tags into modern English text records." }
+            { name: "Asif", type: "Criminal", text: "I have a sweet tooth, so I was eating a pack of chewy red strawberry candy drops during my floor checks." },
+            { name: "Rubab", type: "RedHerring", text: "The air felt stale, so I sprayed a bottle of sweet strawberry-scented room mist near the main visitor gate." },
+            { name: "Faraz", type: "Innocent", text: "I was using a fluffy white static wool duster to clean off the dust layers from the marble display bases." },
+            { name: "Kiran", type: "Innocent", text: "I was checking each glass door to make sure the mechanical padlocks clicked shut securely when closed." },
+            { name: "Imran", type: "Innocent", text: "My job was translating the ancient symbol text rules into modern English on the descriptive paper labels." }
         ]
     },
     29: {
-        crime: "Master Safe Combination Theft", place: "Executive Office Desk",
-        clue: "The safe dial has fine black smudge prints from charcoal material.",
+        crime: "Master Safe Combination Theft", place: "The Executive Office Room",
+        clue: "The safe dial mechanism was copied, leaving fine black smudge finger prints from charcoal block stick material.",
         suspects: [
-            { type: "Criminal", name: "Sara", text: "I was shading a custom art drawing sketch with raw artist charcoal blocks." },
-            { type: "RedHerring", name: "Fatima", text: "I was cleaning out old soot ash from the fireplace heater grate panel." },
-            { type: "Innocent", name: "Zara", text: "I was filed copies of business contract papers into steel file boxes." },
-            { type: "Innocent", name: "Hassan", text: "I was refilling the table water decanter with fresh clear mineral water water." },
-            { type: "Innocent", name: "Ayesha", text: "I was resetting the digital clock timer on the wall mount fixture." }
+            { name: "Sajid", type: "Criminal", text: "I'm an amateur artist, so I was using thick artist charcoal sticks to shade a large face portrait draft on sketch sheets." },
+            { name: "Tayyaba", type: "RedHerring", text: "I was assigned to clean out the old burnt wood soot ash from inside the office decorative fireplace hearth." },
+            { name: "Naeem", type: "Innocent", text: "I spent the afternoon filing the new client business contract sheets into the steel suspension folders." },
+            { name: "Fiza", type: "Innocent", text: "I didn't touch the safe. I was refilling the executive glass water pitcher with fresh clear mineral water." },
+            { name: "Basit", type: "Innocent", text: "I was standing up on a chair trying to reset the time digits on the round wall-mounted office clock." }
         ]
     },
     30: {
-        crime: "Rare Pearl Disappearance", place: "Ocean Exhibit Vault",
-        clue: "There is a smell of sour vinegar cleaner hovering around the display tank.",
+        crime: "Rare Ocean Pearl Disappearance", place: "The Marine Exhibit Vault",
+        clue: "A massive pearl was stolen, leaving a sharp smell of sour vinegar cleaner hovering right over the glass water tank.",
         suspects: [
-            { type: "Criminal", name: "Omar", text: "I was using a vinegar water mix to scrub hard salt scales off the tank glass." },
-            { type: "RedHerring", name: "Hiba", text: "I was eating salt and vinegar potato crisps out of a shiny foil bag bag." },
-            { type: "Innocent", name: "Areeba", text: "I was checking the salinity level gauges of the main ocean water supply water." },
-            { type: "Innocent", name: "Usman", text: "I was replacing the chemical carbon filter pads inside the pump system room." },
-            { type: "Innocent", name: "Zain", text: "I was cataloging exotic sea clam shells into wooden grid storage boxes." }
+            { name: "Waqar", type: "Criminal", text: "The tank glass had white salt stains, so I mixed white vinegar with water to scrub the hard crust layers off." },
+            { name: "Areej", type: "RedHerring", text: "I was sitting on the bench eating a big bag of salt and vinegar potato chips out of a loud foil bag." },
+            { name: "Noman", type: "Innocent", text: "I was completely focused on reading the salinity and salt level meters on the main aquarium display panel." },
+            { name: "Sidra", type: "Innocent", text: "My job was just changing out the old chemical carbon filter sponge pads inside the water pump system tank room." },
+            { name: "Javed", type: "Innocent", text: "I spent the afternoon sorting the rare sea shells into alphabetical order inside the wooden divider grid boxes." }
         ]
     },
     // LEVELS 31-40
     31: {
-        crime: "Golden Medal Robbery", place: "Sports Trophy Pavilion",
-        clue: "Forensics found white chalk marks on the secure vault handle grip.",
+        crime: "Sports Trophy Theft", place: "The Pavilion Storage Deck",
+        clue: "The glass case was opened, and forensics found white chalk powder marks left right on the vault handle grip.",
         suspects: [
-            { type: "Criminal", name: "Ayesha", text: "I was rub gym chalk powder on my palms for lifting practice weights." },
-            { type: "RedHerring", name: "John", text: "I was drawing white target grid coordinates down on the court floor blackboard." },
-            { type: "Innocent", name: "David", text: "I was polishing the brass presentation platters using a dry microfiber microfiber cloth." },
-            { type: "Innocent", name: "James", text: "I was stringing up a new tournament net framework across the court poles." },
-            { type: "Innocent", name: "William", text: "I was grouping promotional sports shirts into size category display crates." }
+            { name: "Khurram", type: "Criminal", text: "I was doing heavy deadlifts in the gym hall and rubbed a lot of white weightlifting chalk onto my palms." },
+            { name: "Naila", type: "RedHerring", text: "I was using a white chalk stick to sketch out the tennis game tactic lines on the wall blackboard." },
+            { name: "Arshad", type: "Innocent", text: "I was busy polishing the old silver presentation platters using a dry microfiber cloth towel to remove tarnish." },
+            { name: "Sanam", type: "Innocent", text: "My assignment was just stringing up the new white volleyball net framework across the court poles." },
+            { name: "Tahir", type: "Innocent", text: "I spent my hour packing the extra tournament t-shirts into separate labeled cardboard display boxes." }
         ]
     },
     32: {
-        crime: "Secret Codebook Theft", place: "Intelligence Office Safe",
-        clue: "The desk space smells distinctly of hot toasted cheese bread crust.",
+        crime: "The Secret Codebook Theft", place: "The Intelligence Office Safe",
+        clue: "A book of codes was copied, leaving a distinct room smell of hot toasted cheese bread crust behind the files.",
         suspects: [
-            { type: "Criminal", name: "Noah", text: "I made a toasted cheese sandwich in the microwave and slightly burnt the edges." },
-            { type: "RedHerring", name: "Daniel", text: "I was slicing up fresh cheddar cheese bricks for a party snack plate room." },
-            { type: "Innocent", name: "Emily", text: "I was cross-referencing printed security code lists with the computer log logs." },
-            { type: "Innocent", name: "Lucas", text: "I was filing data entry sheets into separate alphabetic binder structures." },
-            { type: "Innocent", name: "Michael", text: "I was running an diagnostic hardware analysis on the cryptography module drive." }
+            { name: "Shahbaz", type: "Criminal", text: "I made a quick late-night snack in the office microwave and completely burned the edges of my cheese sandwich." },
+            { name: "Lubna", type: "RedHerring", text: "I didn't cook anything. I was using a knife to slice up fresh cheddar cheese cubes for the meeting platter." },
+            { name: "Farooq", type: "Innocent", text: "I was sitting at my terminal comparing the printed system code lists with the main computer log registry." },
+            { name: "Eman", type: "Innocent", text: "My job was sorting the employee files into separate alphabetical binder cabinets in the archive alcove." },
+            { name: "Zeeshan", type: "Innocent", text: "I was running an automatic hardware diagnosis check on the encrypted network hard drive module." }
         ]
     },
     33: {
-        crime: "Rare Fossil Bone Theft", place: "Paleontology Lab Table",
-        clue: "A stray bit of bright orange woolen fiber was caught on the bone display case.",
+        crime: "Rare Fossil Bone Theft", place: "The Paleontology Lab Desk",
+        clue: "A rare dinosaur tooth was stolen, leaving a stray bit of bright orange woolen fiber caught on the glass hinge.",
         suspects: [
-            { type: "Criminal", name: "Liam", text: "I was stitching an orange wool blanket patch back together in the break hour." },
-            { type: "RedHerring", name: "Chris", text: "I was using a bright neon orange highlighter marker to check lab notes." },
-            { type: "Innocent", name: "Elena", text: "I was brushing sand dust off fragile fossil fragments with a soft hair tool brush." },
-            { type: "Innocent", name: "Mason", text: "I was cataloging dinosaur tooth models inside padded wooden archive cases." },
-            { type: "Innocent", name: "Sophia", text: "I was filling out the museum registry database for incoming bone crates." }
+            { name: "Zia", type: "Criminal", text: "My favorite winter blanket was tearing apart, so I used a needle and a spool of bright orange wool yarn to fix it." },
+            { name: "Mehwish", type: "RedHerring", text: "I didn't leave any threads! I was using a bright neon orange highlighter pen to color my laboratory report papers." },
+            { name: "Asad", type: "Innocent", text: "I spent my shift using a very fine, soft camel-hair brush to clean dirt off the delicate bone fragments." },
+            { name: "Hina", type: "Innocent", text: "My job was just typing the fossil names into the digital museum registry database on the laptop terminal." },
+            { name: "Tanveer", type: "Innocent", text: "I was in the storage sector moving the newly arrived fossil plaster crates onto the wooden storage pallets." }
         ]
     },
     34: {
-        crime: "Diamond Scepter Theft", place: "Royal Treasury Suite",
-        clue: "The floor near the glass cabinet has sticky residue drops of fruit jelly.",
+        crime: "Diamond Scepter Theft", place: "The Royal Treasury Suite",
+        clue: "The gold scepter went missing, leaving sticky residue drops of sweet fruit jelly on the clean white floor tiles.",
         suspects: [
-            { type: "Criminal", name: "Ethan", text: "I was eating toasted biscuits with sweet grape fruit jelly for a light snack snack." },
-            { type: "RedHerring", name: "Olivia", text: "I was pouring thick clear liquid adhesive jelly into a craft seal form." },
-            { type: "Innocent", name: "Jacob", text: "I was polishing the gold plating panels on the coronation scepter stand mount." },
-            { type: "Innocent", name: "Ava", text: "I was checking the battery level lights on the laser trip alarm sensors framework." },
-            { type: "Innocent", name: "Logan", text: "I was re-keying the cylinder padlock units on the reserve treasure lockers." }
+            { name: "Mansoor", type: "Criminal", text: "I brought a toasted bun from home and was spreading a big spoonful of sweet grape jelly on it for my snack." },
+            { name: "Alina", type: "RedHerring", text: "I was pouring a thick, clear liquid gel adhesive substance into a specialized resin craft seal mold form." },
+            { name: "Shakir", type: "Innocent", text: "I spent the entire shift polishing the brass plating panels on the coronation scepter's display pedestal stand." },
+            { name: "Kanza", type: "Innocent", text: "I was checking the tiny battery status lights on the laser trip alarm sensor frames along the wall boundaries." },
+            { name: "Naeem", type: "Innocent", text: "My assignment was just changing out the cylinder padlock mechanisms on the backup reserve storage lockers." }
         ]
     },
     35: {
-        crime: "Mainframe Hardware Swap", place: "Data Central Core Room",
-        clue: "The ventilation unit near the broken rack smells like strong dark coffee.",
+        crime: "Mainframe Card Swap", place: "The Data Core Center",
+        clue: "A high-speed processor board was taken, and the air ventilation unit near the server rack smells like strong dark coffee.",
         suspects: [
-            { type: "Criminal", name: "Isabella", text: "I spilled a cup of fresh espresso coffee right near the floor vent openings." },
-            { type: "RedHerring", name: "Lucas", text: "I was eating a chocolate mocha energy snack bar at my server desk station." },
-            { type: "Innocent", name: "Mia", text: "I was tying computer networking cables away from the path using plastic clips ties." },
-            { type: "Innocent", name: "Jackson", text: "I was installing server rack expansion rails with a magnetic screwdriver tool." },
-            { type: "Innocent", name: "Oliver", text: "I was scanning system temperature monitors to make sure the room stayed cool." }
+            { name: "Junaid", type: "Criminal", text: "I was clumsy and spilled a full mug of hot dark espresso coffee right onto the floor air vent openings." },
+            { name: "Sabina", type: "RedHerring", text: "I was sitting at my terminal eating a sweet chocolate mocha energy bar to boost my focus during the network lag." },
+            { name: "Raza", type: "Innocent", text: "I spent my evening using plastic wire ties to wrap the messy networking data cables away from the main walkway floor." },
+            { name: "Uzma", type: "Innocent", text: "I was using a magnetic screwdriver to install the metal extension slider rails inside the empty server server racks." },
+            { name: "Fahad", type: "Innocent", text: "My only task was watching the digital temperature gauges on the master screen to make sure the room stayed cool." }
         ]
     },
     36: {
-        crime: "Vintage Watch Collection Raid", place: "Antique Vault Deck",
-        clue: "There are traces of yellow beeswax polish residue left on the lock latch.",
+        crime: "Vintage Watch Raid", place: "The Antique Gallery Room",
+        clue: "A collection of gold pocket watches went missing, leaving yellow beeswax polish residue on the metal vault latch.",
         suspects: [
-            { type: "Criminal", name: "Charlotte", text: "I was rubbing natural yellow beeswax block onto the old wooden display drawers." },
-            { type: "RedHerring", name: "Aiden", text: "I was burning a yellow scented paraffin candle to clear the stale air smell." },
-            { type: "Innocent", name: "Amelia", text: "I was using fine iron tweezers to arrange gears inside watch display cases cases." },
-            { type: "Innocent", name: "Ethan", text: "I was sorting velvet lining materials into specific size boxes inside stock stacks." },
-            { type: "Innocent", name: "Harper", text: "I was copying model manufacture numbers into the master antique registry folder book." }
+            { name: "Tariq", type: "Criminal", text: "The wood was look dry, so I rubbed a block of natural yellow beeswax onto the old display cabinet drawers to shine them up." },
+            { name: "Samina", type: "RedHerring", text: "The air felt incredibly stale, so I lit a yellow-colored scented paraffin candle stick out in the corridor lobby." },
+            { name: "Waseem", type: "Innocent", text: "I spent hours using a pair of very fine iron tweezers to arrange the tiny gears inside the watch display frame rows." },
+            { name: "Sadia", type: "Innocent", text: "My job was just sorting the velvet inner lining materials into different size boxes inside the stock storage stacks." },
+            { name: "Aftab", type: "Innocent", text: "I was strictly tasked with copying the old manufacture dates into the museum's leather-bound antique logbook binder." }
         ]
     },
     37: {
-        crime: "Encrypted Network Blueprint Loss", place: "Engineering Drawing Pod",
-        clue: "The layout table has fine silver glitter flakes spread across its surface.",
+        crime: "Network Blueprint Loss", place: "The Engineering Design Pod",
+        clue: "The main blueprint paper sheet went missing, and the drawing table has fine silver glitter flakes on its surface.",
         suspects: [
-            { type: "Criminal", name: "Liam", text: "I was gluing sparkling silver glitter stars onto my niece's school solar map map." },
-            { type: "RedHerring", name: "Evelyn", text: "I was polishing shiny silver trophy plates using a polishing paste chemical fluid." },
-            { type: "Innocent", name: "Benjamin", text: "I was rolling up blueprint papers and putting them inside plastic tubes storage." },
-            { type: "Innocent", name: "Abigail", text: "I was replacing the black toner container units inside the plotting printer deck." },
-            { type: "Innocent", name: "Ali", text: "I was securing draft papers down onto the tilted desks using drafting tape strips strips." }
+            { name: "Babar", type: "Criminal", text: "I was helping my kid finish a school solar system poster board and was gluing sparkling silver glitter stars onto it." },
+            { name: "Nida", type: "RedHerring", text: "I was using a silver metal polishing spray and a cloth to clean up the presentation trophy cups inside the display case." },
+            { name: "Haris", type: "Innocent", text: "I spent the last two hours rolling up blueprint sheets and sliding them inside the protective plastic storage tubes." },
+            { name: "Maham", type: "Innocent", text: "My hands are dirty from ink! I was replacing the black toner container units inside the main plotting printer desk." },
+            { name: "Zubair", type: "Innocent", text: "I was just sticking long strips of clear drafting tape along the edges of the drawing paper to hold them down flat." }
         ]
     },
     38: {
-        crime: "Rare Gold Nugget Swap", place: "Geology Minerals Room",
-        clue: "There is a sharp smell of alcohol citrus sanitizer near the cabinet case.",
+        crime: "Rare Gold Nugget Swap", place: "The Geology Minerals Hall",
+        clue: "The safe display was broken, leaving a sharp smell of alcohol citrus sanitizer chemical right next to the cabinet.",
         suspects: [
-            { type: "Criminal", name: "Ahmed", text: "I used a strong lemon citrus spray cleaner to clean the glass mineral cabinets clear." },
-            { type: "RedHerring", name: "Sara", text: "I was peeling and eating a couple of sour lemon candy pieces at my post table." },
-            { type: "Innocent", name: "Fatima", text: "I was weighing raw quartz stone samples using a digital analytical scale unit." },
-            { type: "Innocent", name: "Zara", text: "I was printing barcode identification sticker labels for the crystal stone boxes stack." },
-            { type: "Innocent", name: "Hassan", text: "I was adjusting the metal stand positions inside the geology display window rows." }
+            { name: "Sohail", type: "Criminal", text: "The cabinet windows were completely smudged, so I sprayed a ton of strong lemon citrus fluid to scrub the glass clear." },
+            { name: "Amna", type: "RedHerring", text: "I didn't clean anything. I was sitting at my desk post eating a couple of sour lemon fruit candy candies from a bag." },
+            { name: "Kamran", type: "Innocent", text: "I spent the entire evening weighing raw quartz mineral stone samples using the high-precision digital analytical scale." },
+            { name: "Aila", type: "Innocent", text: "My job was just running the barcode printer machine to make identification sticker labels for the new crystal boxes." },
+            { name: "Nabeel", type: "Innocent", text: "I was strictly tasked with adjusting the metal wire support stand positions inside the geology display glass rows." }
         ]
     },
     39: {
-        crime: "Prototype Processor Theft", place: "Microchip Clean Lab",
-        clue: "A small fragment of blue ballpoint pen plastic was dropped by the dock tray.",
+        crime: "Microprocessor Theft", place: "The Microchip Clean Lab",
+        clue: "A prototype computer chip went missing, and a small fragment of blue ballpoint pen plastic was dropped in the dock tray.",
         suspects: [
-            { type: "Criminal", name: "Ayesha", text: "My cheap blue plastic pen snapped in half while I was writing down processing test values." },
-            { type: "RedHerring", name: "Omar", text: "I was marking dynamic cleanroom plastic bins using a thick blue ink permanent marker marker." },
-            { type: "Innocent", name: "Hiba", text: "I was checking microchip circuit traces using a high-magnification desktop microscope monitor." },
-            { type: "Innocent", name: "Areeba", text: "I was counting sterile silicon wafer disks inside protective vacuum storage boxes containers." },
-            { type: "Innocent", name: "Usman", text: "I was changing the air filter screens on the particle extractor unit wall grids." }
+            { name: "Javed", type: "Criminal", text: "I pressed way too hard on my cheap blue plastic pen while writing down the chip test values, and the plastic casing snapped in half." },
+            { name: "Rania", type: "RedHerring", text: "I didn't use a pen. I was marking the cleanroom plastic equipment bins using a thick, blue ink permanent marker stick." },
+            { name: "Shehzad", type: "Innocent", text: "I spent my hour staring through a high-magnification desktop microscope monitor to check the gold circuit traces." },
+            { name: "Bushra", type: "Innocent", text: "My job was just counting the sterile silicon wafer disks inside the protective vacuum-sealed plastic storage container boxes." },
+            { name: "Adnan", type: "Innocent", text: "I was over by the back wall grid replacing the air filter screen panels on the main cleanroom particle extractor unit." }
         ]
     },
     40: {
-        crime: "Historical Treaty Theft", place: "Document Archive Vault",
-        clue: "The floor near the documents has traces of dried red clay mud pieces.",
+        crime: "Historical Treaty Theft", place: "The Document Archive Vault",
+        clue: "An old leather-bound treaty book was taken, leaving traces of dried red clay mud sitting on the shelf velvet backing.",
         suspects: [
-            { type: "Criminal", name: "Zain", text: "I was mixing red clay soil to fix the base of greenhouse flower pots pots." },
-            { type: "RedHerring", name: "Ayesha", text: "I was painting an old brick outline drawing sketch sheet with crimson red acrylic wash paint." },
-            { type: "Innocent", name: "John", text: "I was scanning antique treaty paperwork pages into a digital archive cloud server folder." },
-            { type: "Innocent", name: "David", text: "I was tying old legal ledger books together with secure brown cotton packaging ropes." },
-            { type: "Innocent", name: "James", text: "I was dusting off the upper wooden document racks using a feather dusting stick tool." }
+            { name: "Rizwan", type: "Criminal", text: "I brought some fresh red clay soil from the nursery yard to fix the broken pots of the indoor lobby plants." },
+            { name: "Sobia", type: "RedHerring", text: "I was painting an old brick building design draft on a white canvas canvas sheet using a tube of dark red acrylic paint." },
+            { name: "Jawad", type: "Innocent", text: "I spent the afternoon scanning old legal treaty papers and uploading them into the digital archive cloud server files." },
+            { name: "Maira", type: "Innocent", text: "My job was just bundling the ancient business ledger books together using thick brown cotton packaging ropes." },
+            { name: "Khurram", type: "Innocent", text: "I didn't even open a cabinet. I was just brushing a layer of dust off the upper wooden document racks with a feather duster tool." }
         ]
     },
     // LEVELS 41-50
     41: {
-        crime: "Diamond Tiara Robbery", place: "Exhibition Hall West",
-        clue: "A distinct smell of burning vanilla scented wax candle sticks fills the air space.",
+        crime: "Diamond Tiara Robbery", place: "The Grand Exhibition Hall",
+        clue: "The tiara case was unlocked, leaving a distinct smell of burning vanilla scented wax sticks in the air.",
         suspects: [
-            { type: "Criminal", name: "William", text: "I was melting vanilla scented sealing wax to stamp official envelope package letters." },
-            { type: "RedHerring", name: "Noah", text: "I was baking sweet vanilla extract cream biscuits in the staff break room oven range." },
-            { type: "Innocent", name: "Daniel", text: "I was polishing glass crystal light chandeliers using clear alcohol spray and rags." },
-            { type: "Innocent", name: "Emily", text: "I was arranging decorative velvet display steps inside the primary display corner framework." },
-            { type: "Innocent", name: "Lucas", text: "I was matching inventory numbers on security tags with the printout sheet lists lists." }
+            { name: "Saqib", type: "Criminal", text: "I was melting a stick of vanilla-scented sealing wax over a small flame to stamp the official envelope packages." },
+            { name: "Momina", type: "RedHerring", text: "I was heating up a fresh batch of sweet vanilla cream biscuits inside the staff room microwave oven cooker." },
+            { name: "Zeeshan", type: "Innocent", text: "I spent hours spraying clear alcohol liquid cleaner onto the large glass crystal light chandeliers hanging from the ceiling." },
+            { name: "Natasha", type: "Innocent", text: "My job was just arranging the decorative steps of black velvet cushions inside the primary corner showcase showcase." },
+            { name: "Irfan", type: "Innocent", text: "I was sitting at the entrance desk matching the barcode numbers on the incoming exhibit inventory list sheet prints." }
         ]
     },
     42: {
-        crime: "Main Crypto Node Hack", place: "Network Router Vault",
-        clue: "A wrapper fragment of intense mint gum was found stuck behind the router.",
+        crime: "Crypto Network Node Hack", place: "The Router Room Core",
+        clue: "A server link went offline, and a wrapper fragment of intense peppermint gum was found stuck right behind the router box.",
         suspects: [
-            { type: "Criminal", name: "Michael", text: "I was chewing powerful peppermint gum strips to keep focused on data sorting tasks." },
-            { type: "RedHerring", name: "Liam", text: "I was sipping on hot organic spearmint leaf tea from a thermal travel mug container cup." },
-            { type: "Innocent", name: "Chris", text: "I was changing optical fiber connection cables along the wall mount routing paths racks." },
-            { type: "Innocent", name: "Elena", text: "I was clearing system log cache directories on the master terminal control board database." },
-            { type: "Innocent", name: "Mason", text: "I was labeling network link switches with self-adhesive printed yellow vinyl sticker tape." }
+            { name: "Khizar", type: "Criminal", text: "I had a massive headache and a stale taste, so I was chewing some powerful mint gum strips to help me focus on my data entry logs." },
+            { name: "Sehrish", type: "RedHerring", text: "I didn't chew gum. I was sipping hot organic spearmint leaf tea out of my thermal insulated metal travel travel mug cup." },
+            { name: "Waleed", type: "Innocent", text: "I was running long yellow optical fiber connection wires along the main wall routing tracks and server rack grid loops." },
+            { name: "Hina", type: "Innocent", text: "My task was just clearing the old system temporary files and cache folders out from the master terminal database storage." },
+            { name: "Rameel", type: "Innocent", text: "I spent the last two hours typing numbers onto vinyl adhesive sticker tape and labeling the network patch panels." }
         ]
     },
     43: {
-        crime: "Master Keycard Pickpocket", place: "Main Administration Pod",
-        clue: "A tiny strand of bright purple wool yarn fiber was left behind on the chair.",
+        crime: "Master Passcard Pickpocket", place: "The Admin Office Suite",
+        clue: "The security pass was pulled from a desk drawer, leaving a tiny strand of bright purple wool yarn fiber on the mesh chair.",
         suspects: [
-            { type: "Criminal", name: "Sophia", text: "I was crocheting a violet wool hat bundle for my sibling in the lounge break hours." },
-            { type: "RedHerring", name: "Ethan", text: "I was marking urgent file lines with a bright purple neon highlight marker pen stick." },
-            { type: "Innocent", name: "Olivia", text: "I was printing out incoming employee registration profile sheets on the laser printing system deck." },
-            { type: "Innocent", name: "Jacob", text: "I was clearing jamming paper sheets out from the document shredder machine input slider paths." },
-            { type: "Innocent", name: "Ava", text: "I was sorting desk mailbox document folders into chronological order stacks by year dates." }
+            { name: "Zafar", type: "Criminal", text: "The office was quiet, so I sat in the lounge corner using a crotchet needle and a ball of violet wool yarn to make a small hat." },
+            { name: "Ayla", type: "RedHerring", text: "I didn't touch any wool yarn! I was using a bright neon purple highlighter felt pen to mark the urgent client names on the printouts." },
+            { name: "Fiaz", type: "Innocent", text: "I spent my morning printing out the new employee registration registration forms on the main office laser printing deck machine." },
+            { name: "Kanza", type: "Innocent", text: "I was over by the sorting bins clearing out a huge jam of shredded paper strips stuck inside the document destroyer machine input slider." },
+            { name: "Arif", type: "Innocent", text: "My job was simply arranging the incoming paper mail files into proper chronological date slots inside the wall wooden mailbox rack." }
         ]
     },
     44: {
-        crime: "Rare Gem Collector Loot", place: "Mineral Exhibition Display",
-        clue: "The safe dial mechanism has traces of dark graphite powder smudges.",
+        crime: "Rare Mineral Stone Swap", place: "The Geology Showcase Suite",
+        clue: "A valuable crystal was replaced with glass, leaving fine black graphite powder smudges on the glass locking safe dial.",
         suspects: [
-            { type: "Criminal", name: "Logan", text: "I was using heavy graphite art pencils to sketch layout drafts of rock structures sheets." },
-            { type: "RedHerring", name: "Isabella", text: "I was sweeping out dark fireplace charcoal soot ashes inside the maintenance room grate vents." },
-            { type: "Innocent", name: "Lucas", text: "I was wiping off display glass surfaces with a streak-free optical microfiber wipe cloth." },
-            { type: "Innocent", name: "Mia", text: "I was grouping crystal stone samples by hardness metrics inside grid partitioned cases." },
-            { type: "Innocent", name: "Jackson", text: "I was checking security lock hinges on the secondary storage window screens frameworks panel." }
+            { name: "Shakir", type: "Criminal", text: "I was drawing engineering machine layouts on large draft sheets and used extra soft, dark graphite pencils to shade the lines." },
+            { name: "Noreen", type: "RedHerring", text: "I was assigned to clean the dirty fireplace hearth in the back room and spent hours sweeping out the black wood charcoal soot ashes." },
+            { name: "Jamil", type: "Innocent", text: "I spent my shift spraying streak-free optical cleaning liquid and wiping fingerprints off the display glass showcases windows panels." },
+            { name: "Shiza", type: "Innocent", text: "My job was grouping the new raw stone mineral samples by their hardness metrics inside the velvet-lined grid partition cases." },
+            { name: "Fahed", type: "Innocent", text: "I didn't even walk near the crystal safe. I was checking if the metal hinges on the secondary window security grills were tightly screwed." }
         ]
     },
     45: {
-        crime: "Ancient Script Swindle", place: "Library High Security Deck",
-        clue: "A strong smell of vinegar liquid chemical cleaner hangs around the table rows.",
+        crime: "Ancient Manuscript Theft", place: "The Archive Special Library",
+        clue: "A priceless ancient scroll disappeared, leaving a strong smell of vinegar liquid chemical cleaner hovering over the workspace table.",
         suspects: [
-            { type: "Criminal", name: "Oliver", text: "I used raw white vinegar mix to treat old wood desk mold spots in the desk corner." },
-            { type: "RedHerring", name: "Charlotte", text: "I was eating a packet of salt and vinegar potato crisps at the lobby reception desks desk." },
-            { type: "Innocent", name: "Aiden", text: "I was cataloging historical manuscript roll tags into the local desktop asset inventory app." },
-            { type: "Innocent", name: "Amelia", text: "I was checking relative humidity levels gauges inside the ancient script archive preservation rooms." },
-            { type: "Innocent", name: "Ethan", text: "I was placing acid-free paper spacer sheets between old manuscript document pages files safe." }
+            { name: "Mubashir", type: "Criminal", text: "The old oak table corner had white mold spots growing on the wood, so I mixed white vinegar with water to scrub the spots clean." },
+            { name: "Sadia", type: "RedHerring", text: "I didn't clean anything. I was sitting at the lobby front reception counter eating a loud foil bag of salt and vinegar potato chips snacks." },
+            { name: "Zain", type: "Innocent", text: "I spent the entire shift entering the historical book code names into the library's local desktop asset tracking software app." },
+            { name: "Aqsa", type: "Innocent", text: "My only task was checking the digital humidity gauges inside the preservation room to make sure the air didn't get too damp." },
+            { name: "Haroon", type: "Innocent", text: "I was simply placing sheets of special acid-free white spacer papers between the delicate pages of the legal manuscript files." }
         ]
     },
     46: {
-        crime: "Enchanted Ring Replica Swap", place: "History Vault Room",
-        clue: "Forensics found white chalk marks left on the open case edge stand track.",
+        crime: "Historical Replica Swap", place: "The Central History Vault",
+        clue: "An enchanted crown replica went missing, leaving faint white chalk mark lines on the edge of the showcase stand track.",
         suspects: [
-            { type: "Criminal", name: "Harper", text: "I was mark storage boxes layout spots down on the floor tiles using a chalk marker block." },
-            { type: "RedHerring", name: "Liam", text: "I accidentally spilled white baby talcum powder from my sports bag onto the side bench desk." },
-            { type: "Innocent", name: "Evelyn", text: "I was checking serial numbering codes engraved inside the silver ring replica base slots mounts." },
-            { type: "Innocent", name: "Benjamin", text: "I was adjusting matching lighting angle brackets over the historical jewelry displays panels rows." },
-            { type: "Innocent", name: "Abigail", text: "I was clean dust layer formations off velvet insert panels inside the reserve stock boxes cases." }
+            { name: "Rizwan", type: "Criminal", text: "I was using a chunky white chalk marker block to draw positioning boxes down on the floor tiles for the new display cabinet layout." },
+            { name: "Amina", type: "RedHerring", text: "I accidentally dropped my gym bag onto the side bench desk, and a container of white baby powder popped open and spilled everywhere." },
+            { name: "Zahid", type: "Innocent", text: "I spent hours using a magnifying lens glass to check if the serial numbers were correctly engraved inside the replica ring bases." },
+            { name: "Sana", type: "Innocent", text: "My job was just adjusting the angles of the small overhead metal spotlight lighting brackets to make sure the panels looked bright." },
+            { name: "Mustafa", type: "Innocent", text: "I was strictly assigned to clean dust layer formations off the red velvet insert pads inside the spare storage boxes in the back corridor." }
         ]
     },
     47: {
-        crime: "Secret Business Strategy Raid", place: "Executive Office Suite",
-        clue: "The floor beneath the broken cabinet drawer has sticky drops of sweet honey.",
+        crime: "Secret Business Strategy Raid", place: "The Executive Corner Suite",
+        clue: "A top-secret company expansion map went missing, leaving sticky drops of sweet yellow honey beneath the broken cabinet drawer.",
         suspects: [
-            { type: "Criminal", name: "Ali", text: "I was stir honey drops into my lemon herbal beverage cup drink to help clear my voice." },
-            { type: "RedHerring", name: "Ahmed", text: "I was slicing up ripe yellow mango fruit slices for a quick afternoon food break bowl." },
-            { type: "Innocent", name: "Sara", text: "I was filing corporate tax declaration sheets inside steel suspension track cabinets containers box." },
-            { type: "Innocent", name: "Fatima", text: "I was clear old dry adhesive tape leftovers off the table surface layout using a steel scraper." },
-            { type: "Innocent", name: "Zara", text: "I was setting up an electronic desk clock display unit with fresh battery cell replacements packs." }
+            { name: "Asif", type: "Criminal", text: "I had a terrible sore throat before the morning meeting, so I stirred two drops of liquid honey into my herbal lemon cup drink to help my voice." },
+            { name: "Rubab", type: "RedHerring", text: "Don't look at my snacks! I was busy slicing up a fresh ripe yellow mango fruit into a small glass bowl for my afternoon meal break." },
+            { name: "Faraz", type: "Innocent", text: "I spent my time filing the corporate registration tax declaration sheets inside the heavy metal rolling suspension track drawer cabinets." },
+            { name: "Kiran", type: "Innocent", text: "I was using a flat steel razor scraper tool to clear out old dried glue and adhesive tape leftovers off the workspace table surface boards." },
+            { name: "Imran", type: "Innocent", text: "I didn't touch the drawer! I was setting up a brand new electronic desk digital clock calendar unit with a fresh pack of cell battery replacements." }
         ]
     },
     48: {
-        crime: "Data Server Main Card Theft", place: "Network Router Block C",
-        clue: "The area around the card chassis smells strongly of fresh orange rind peel.",
+        crime: "Router Card Theft", place: "The Main Network Block C",
+        clue: "A primary server interface card was pulled, and the chassis area smells strongly of fresh orange rind fruit peel juice.",
         suspects: [
-            { type: "Criminal", name: "Hassan", text: "I was peeling and snack on some juicy oranges at my server room router workspace desk station." },
-            { type: "RedHerring", name: "Ayesha", text: "I used an industrial lemon citrus solvent liquid to strip old stickers off network terminal frameworks." },
-            { type: "Innocent", name: "Omar", text: "I was checking data connection terminal blink codes along the master server board rack grids loop." },
-            { type: "Innocent", name: "Hiba", text: "I was blow dust accumulation away from heat sinks units utilizing a compressed air canister jet." },
-            { type: "Innocent", name: "Areeba", text: "I was log system update ticket records inside the company central hardware maintenance app tracker." }
+            { name: "Sajid", type: "Criminal", text: "I brought a bag of juicy sweet oranges to my workspace and was peeling them right over my keyboard station terminal during my breaks hour." },
+            { name: "Tayyaba", type: "RedHerring", text: "The network frames had sticky residue, so I poured an industrial lemon citrus solvent liquid onto a rag to strip the old adhesive labels off." },
+            { name: "Naeem", type: "Innocent", text: "I spent the entire afternoon tracking the flashing blue data connection link codes along the main server motherboard router rack grid loops." },
+            { name: "Fiza", type: "Innocent", text: "My job was simple. I was utilizing a heavy canister of compressed air gas to blow fine dust layer accumulations away from the server heatsink fan units." },
+            { name: "Basit", type: "Innocent", text: "I was stuck at my desk terminal logging system update maintenance ticket records inside the corporate central tracking application portal database." }
         ]
     },
     49: {
-        crime: "Ancient Jade Figurine Swindle", place: "Museum East Vault",
-        clue: "There are traces of red clay soil sitting right on top of the case velvet backing pad.",
+        crime: "Ancient Jade Figurine Swindle", place: "The Museum East Wing Vault",
+        clue: "The artifact was replaced with painted stone, leaving traces of red clay soil sitting right on top of the velvet backing pad surface.",
         suspects: [
-            { type: "Criminal", name: "Usman", text: "I was re-potting decorative baseline terracotta clay pots out in the conservatory glass room." },
-            { type: "RedHerring", name: "Zain", text: "I was painting a red canvas design pattern using heavy body red acrylic color tubes on card sheets." },
-            { type: "Innocent", name: "Ayesha", text: "I was wipe glass framing surfaces clear of finger smudge prints using special window cleaner bottles spray." },
-            { type: "Innocent", name: "John", text: "I was translation ancient symbol lines list text onto descriptive paper tag labels for display mounts." },
-            { type: "Innocent", name: "David", text: "I was change security lock batteries packs inside the secondary display vault cabinets drawers framework." }
+            { name: "Waqar", type: "Criminal", text: "The decorative indoor terracotta clay flower pots near the glass conservatory windows were leaking, so I spent hours putting fresh red soil into them." },
+            { name: "Areej", type: "RedHerring", text: "I was working on a canvas art drawing sheet over in the creative room and was squeezing thick body red acrylic paint tubes out onto my design palette." },
+            { name: "Noman", type: "Innocent", text: "I spent the shift using window spray bottles and clear wipes to remove greasy fingerprint smudge smudges off the museum display cabinet glass frames." },
+            { name: "Sidra", type: "Innocent", text: "My task was just translating the ancient code writing script lines from the scroll text onto modern white descriptive paper tag labels for the wall mounts." },
+            { name: "Javed", type: "Innocent", text: "I didn't enter the vault room. I was replacing the alkaline cell battery packs inside the secondary security backup alarm electronic lock boxes lockers." }
         ]
     },
     50: {
-        crime: "Ultimate Master Diamond Loss", place: "Grand Central Treasury Safe",
-        clue: "Forensics found fine silver glitter dust flakes sitting on the security dial wheel.",
+        crime: "The Master Diamond Loss", place: "The Grand Central Treasury Safe",
+        clue: "The ultimate vault room was breached, and investigators discovered fine silver glitter dust flakes sitting on the main safe dial combination wheel.",
         suspects: [
-            { type: "Criminal", name: "James", text: "I was help my kid finish a glitter craft solar planet map board with silver sparkling stars sheets." },
-            { type: "RedHerring", name: "William", text: "I was use silver metal polish spray paste to shine up the ornamental display trophy cup rows columns." },
-            { type: "Innocent", name: "Noah", text: "I was match incoming inventory code tags listings with digital database system ledger files cloud paths." },
-            { type: "Innocent", name: "Daniel", text: "I was re-keying safety lockers padlock sets blocks inside the backup reserve secure storage room facility." },
-            { type: "Innocent", name: "Emily", text: "I was align velvet layout cushions displays mounts inside the main security display cases window tracks." }
+            { name: "James", type: "Criminal", text: "My kid has a craft deadline, so I was sitting in the lounge gluing sparkling silver glitter sheet stars onto a cardboard solar system universe space map." },
+            { name: "William", type: "RedHerring", text: "I wanted the room to look pristine for the visitors, so I was using a silver metal polish aerosol spray paste to shine up the grand ornamental trophy cups rows." },
+            { name: "Noah", type: "Innocent", text: "I spent my full shift cross-referencing incoming product barcode tag listings with the digital tracking records ledger sheets on the corporate cloud system paths." },
+            { name: "Daniel", type: "Innocent", text: "I was over in the reserve wing storage facility re-keying the cylinder padlock sets and iron safety latch blocks inside the backup high-security locker bins." },
+            { name: "Emily", type: "Innocent", text: "My only assignment was aligning the protective red velvet layout cushions and custom presentation stands inside the front showcase display windows track paths." }
         ]
     }
 };
@@ -648,13 +646,12 @@ function shuffle(arr) { return arr.sort(() => Math.random() - 0.5); }
 
 /* ---------------- CASE ENGINE BUILDER ---------------- */
 function buildFreshCaseMatrix(currentLevel) {
-    // Safely pull the specific static data block from the 50 master levels catalog
     let caseData = masterLevels[currentLevel] || masterLevels[1];
 
     let temporarySuspectDeck = [];
     let allocatedCriminalName = "";
 
-    // Shuffle the preset 5 suspect profiles so their board positions change every reload
+    // Shuffle the suspects list so they appear in different box order on every load
     let profiles = shuffle([...caseData.suspects]);
 
     profiles.forEach((p) => {
@@ -669,9 +666,9 @@ function buildFreshCaseMatrix(currentLevel) {
         });
     });
 
-    let briefDescriptionHTML = `🚨 <b>INCIDENT RADAR REPORT:</b> A high-profile <b>${caseData.crime}</b> was carried out inside the <b>${caseData.place}</b>!<br><br>` +
-                               `🔍 <b>CRIME SCENE FORENSICS ELEVATION:</b> ${caseData.clue}<br><br>` +
-                               `<i>Note: Think carefully! Match the clue details to the suspect activity that would naturally make that trace!</i>`;
+    let briefDescriptionHTML = `🚨 <b>INCIDENT PROFILE:</b> <b>${caseData.crime}</b> inside <b>${caseData.place}</b>!<br><br>` +
+                               `🔍 <b>FORENSICS HINT:</b> ${caseData.clue}<br><br>` +
+                               `<i>Detective Warning: Don't guess. Read carefully to find who naturally caused this trace trace!</i>`;
 
     return {
         briefHTML: briefDescriptionHTML,
